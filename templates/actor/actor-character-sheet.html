@@ -1,0 +1,850 @@
+<form class="{{cssClass}} {{actor.type}} w3-display-container w3-container" autocomplete="off">
+  
+  <div class="w3-display-left w3-quarter w3-padding-small w3-col-padding w3-text-white" style="height:100%; overflow:auto; position:absolute; background-color: #010105;">
+    <div class="w3-col">
+      <img src="{{actor.img}}" data-edit="img" class="w3-hover-opacity" title="{{actor.name}}" style="width:100%" >
+    </div>
+
+    <div class="w3-col">
+      <label><b>Hit Points</b>
+      <div class="w3-col">
+        <div class="w3-col s5">
+          <input name="data.health.value" type="number" value="{{data.health.value}}" class="w3-input w3-border w3-border-dark-grey w3-text-white w3-center" style="width:100%; background-color: #181828" >
+        </div>
+        <div class="w3-col s2 w3-center">
+
+          <label>/</label>
+        </div>
+        <div class="w3-col s5">
+          <input name="data.health.max" type="number" value="{{data.health.max}}" class="w3-input w3-border w3-border-dark-grey w3-text-white w3-center" style="width:100%; background-color: #181828" >
+        </div>
+      </div>
+    </div> 
+
+    <div class="w3-col">
+      <label><b>Level</b></label>
+      <input name="data.attributes.level" type="number" value="{{data.attributes.level}}" class="w3-input w3-border w3-border-dark-grey w3-text-white w3-center" style="width:100%; background-color: #181828" >
+    </div>  
+
+    <div class="w3-col">
+      <label><b>Wealth</b></label>
+      <input name="data.attributes.wealth" type="number" value="{{data.attributes.wealth}}" class="w3-input w3-border w3-border-dark-grey w3-text-white w3-center" style="width:100%; background-color: #181828" >
+    </div>
+
+    <div class="w3-col">
+      <label><b>Action Points</b></label>
+      <input name="data.attributes.actionpoints" type="number" value="{{data.attributes.actionpoints}}" class="w3-input w3-border w3-border-dark-grey w3-text-white w3-center" style="width:100%; background-color: #181828" >
+    </div>
+
+    <div class="w3-col">
+      <label><b>Speed</b></label>
+      <input name="data.attributes.speed" type="number" value="{{data.attributes.speed}}" class="w3-input w3-border w3-border-dark-grey w3-text-white w3-center" style="width:100%; background-color: #181828" >
+    </div>
+
+    <div class="w3-col">
+      <label><b>Strikes</b></label>
+      <input name="data.strikes" type="number" value="{{data.strikes}}" class="w3-input w3-border w3-border-dark-grey w3-text-white w3-center" style="width:100%; background-color: #181828" >
+    </div>
+
+    <div class="w3-col-padding">
+      <div class="w3-col">
+        <div class="w3-row">
+          <button class="w3-button w3-red rollable w3-col s5" data-roll="1d6">Roll</button>
+          <div class="w3-col s2 w3-center" style="color: #010105"> - </div>
+          <button class="resetall w3-button w3-red w3-col s5">Reset</button>
+        </div>
+      </div>
+      <button class="w3-button w3-red w3-col rollable" data-label="initiative">Initiative</button>
+    </div>
+  </div>
+
+  <div class="w3-display-right w3-threequarter" style="height:100%; overflow:auto; position:absolute;">
+
+    <div class="w3-row-padding">
+      <div class="w3-col">
+        <label><b>Name</b></label>
+        <input name="name" type="text" value="{{actor.name}}" class="w3-input w3-border w3-border-dark-grey w3-xxlarge w3-padding-32" style="width:100%" >
+      </div>
+
+      <div class="w3-half">
+        <label><b>Background</b></label>
+        <input name="data.background" type="text" value="{{data.background}}" class="w3-input w3-border w3-border-dark-grey w3-large" style="width:100%" >
+      </div>
+
+      <div class="w3-half">
+        <label><b>Origin</b></label>
+        <input name="data.origin" type="text" value="{{data.origin}}" class="w3-input w3-border w3-border-dark-grey w3-large" style="width:100%" >
+      </div>
+    </div>
+
+    <div class="w3-col w3-margin-top w3-container">
+      <div class="sheet-tabs tabs w3-border-bottom w3-border-dark-grey w3-row-padding" data-group="primary">
+        <div class="w3-col">
+          <a class="item w3-button w3-block w3-black w3-small" data-tab="notes">
+            NOTES
+          </a>
+        </div>
+        <div class="w3-col">
+          <a class="item w3-button w3-block w3-black w3-small" data-tab="details">
+            DETAILS
+          </a>
+        </div>
+        <div class="w3-col">
+          <a class="item w3-button w3-block w3-black w3-small" data-tab="equipment">
+            EQUIPMENT
+          </a>
+        </div>
+        <div class="w3-col">
+          <a class="item w3-button w3-block w3-black w3-small" data-tab="kit">
+            KIT
+          </a>
+        </div>
+        <div class="w3-col">
+          <a class="item w3-button w3-block w3-black w3-small" data-tab="tactical">
+            TACTICAL
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="sheet-body w3-row-padding">
+
+      <div class="tab w3-col" data-group="primary" data-tab="notes">
+        <div class="w3-col-padding">
+          <div class="w3-col">
+            <label><b>Motivation</b></label>
+            {{editor content=data.motivation target="data.motivation" rollData=rollData button=true owner=owner editable=editable}}
+          </div>
+
+          <div class="w3-col">
+            <label><b>Relationships</b></label>
+            {{editor content=data.relationship target="data.relationship" rollData=rollData button=true owner=owner editable=editable}}
+          </div>
+
+          <div class="w3-col">
+            <label><b>Reputations</b></label>
+            {{editor content=data.reputations target="data.reputations" rollData=rollData button=true owner=owner editable=editable}}
+          </div>
+
+          <div class="w3-col">
+            <label><b>Fallback</b></label>
+            {{editor content=data.fallback target="data.fallback" rollData=rollData button=true owner=owner editable=editable}}
+          </div>
+
+          <div class="w3-col">
+            <label><b>Biography</b></label>
+            {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
+          </div>
+
+          <div class="w3-col">
+            <label><b>Notes</b></label>
+            {{editor content=data.notes target="data.notes" rollData=rollData button=true owner=owner editable=editable}}
+          </div>
+        </div>
+      </div>
+
+      <div class="tab w3-col" data-group="primary" data-tab="details">
+        <div class="w3-col-padding">
+          <div class="w3-col">
+            <label><b>Skills</b></label>
+
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Skill Name
+                </th>
+                <th class="w3-center"style="width:50px">
+                  <i class="fas fa-tag"></i>
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create skill" data-type="skill"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each skills as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+                  <a class="change-skill-uses w3-tag w3-round-small w3-red w3-center" data-id="{{item._id}}">
+                    {{item.data.uses}}
+                  </a>
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                  <div class="w3-tag w3-round-small w3-red w3-center">
+                    {{item.data.type}}
+                  </div>
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+
+          </div>
+
+          <div class="w3-col">
+            <label><b>Tricks</b></label>
+
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Trick Name
+                </th>
+                <th class="w3-center"style="width:50px">
+                  <i class="fas fa-tag"></i>
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create trick" data-type="trick"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each tricks as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+                  <a class="change-trick-uses w3-tag w3-round-small w3-red w3-center" data-id="{{item._id}}">
+                    {{item.data.uses}}
+                  </a>
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+
+          <div class="w3-col">
+            <label>
+              <b>Complications</b>
+              <a class="change-complication-uses w3-tag w3-round-small w3-red w3-center">
+                {{data.complicationuses}}
+              </a>
+            </label>
+
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Complication Name
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create complication" data-type="complication"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each complications as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab w3-col" data-group="primary" data-tab="equipment">
+        <div class="w3-col-padding">
+          <div class="w3-col">
+            <label><b>Items</b></label>
+
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Item Name
+                </th>
+                <th class="w3-center"style="width:50px">
+                  <i class="fas fa-tag"></i>
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each gear as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+
+          <div class="w3-col">
+            <div class="w3-half">
+                <div class="w3-col">
+                  <label><b>Minor Condition</b></label>
+                </div>
+
+                <div class="w3-col">
+                  <input name="data.condition.n1" type="checkbox" {{checked data.condition.n1}}>
+                  Angry/Minor Mental
+                </div>
+
+                <div class="w3-col">
+                  <input name="data.condition.n2" type="checkbox" {{checked data.condition.n2}}> 
+                  <input name="data.condition.n3" type="checkbox" {{checked data.condition.n3}}>
+                  Winded
+                </div>
+
+                <div class="w3-col">
+                  <input name="data.condition.n4" type="checkbox" {{checked data.condition.n4}}> 
+                  Exhausted
+                </div>
+
+                <div class="w3-col">
+                  <input name="data.condition.n5" type="checkbox" {{checked data.condition.n5}}> 
+                  Lost Confidence:
+                  <input name="data.condition.n5text" type="text" value="{{data.condition.n5text}}" style="width: 180px; margin-left:30px;">
+                </div>
+            </div>
+
+            <div class="w3-half">
+                <div class="w3-col">
+                  <label><b>Major Condition</b></label>
+                </div>
+
+                <div class="w3-col">
+                  <input name="data.condition.n6" type="checkbox" {{checked data.condition.n6}}>
+                  Injured
+                </div>
+
+                <div class="w3-col">
+                  <input name="data.condition.n7" type="checkbox" {{checked data.condition.n7}}> 
+                  Sick
+                </div>
+
+                <div class="w3-col">
+                  <input name="data.condition.n8" type="checkbox" {{checked data.condition.n8}}> 
+                  Major Mental
+                </div>
+
+                <div class="w3-col">
+                  <input name="data.condition.n9" type="checkbox" {{checked data.condition.n9}}> 
+                  Other Major:
+                  <input name="data.condition.n9text" type="text" value="{{data.condition.n9text}}" style="width: 180px; margin-left:30px;">
+                </div>
+
+
+            </div>
+          </div>
+
+          <div class="w3-col">
+            <label><b>Flaws and Favors</b></label>
+
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Flaw or Favor Name
+                </th>
+                <th class="w3-center"style="width:50px">
+                  <i class="fas fa-tag"></i>
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create flaw or favor" data-type="flawfavor"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each flawfavors as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab w3-col" data-group="primary" data-tab="kit">
+        <div class="w3-col-padding">
+          <div class="w3-col">
+            <input name="data.kit" type="text" value="{{data.kit}}" class="w3-large" style="width: 40%">
+          </div>
+
+          <div class="w3-col">
+            {{editor content=data.kit-description target="data.kit-description" rollData=rollData button=true owner=owner editable=editable}}
+          </div>
+          
+          <div class="w3-col">
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Advancement Name
+                </th>
+                <th class="w3-center"style="width:50px">
+                  <i class="fas fa-tag"></i>
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create Advancement" data-type="advancement"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each advancements as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab w3-col" data-group="primary" data-tab="tactical">
+        <div class="w3-col-padding">
+          <div class="w3-col">
+            <label><b>Class:</b></label>
+            <input name="data.class" type="text" value="{{data.class}}" class="w3-large" style="width: 40%">
+          </div>
+
+          <div class="w3-col">
+            <label><b>Class Feats</b></label>
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Feat Name
+                </th>
+                <th class="w3-center"style="width:50px">
+                  <i class="fas fa-tag"></i>
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create Class Feat" data-type="classfeat"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each classfeats as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+          
+          <div class="w3-col">
+            <label><b>Class Powers</b></label>
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-display-container">
+                  <img class="w3-display-middle" src="icons/dice/d20black.svg" style="width: 30px"/>
+                </th>
+                <th> 
+                  Power Name
+                </th>
+                <th> 
+                  Type
+                </th>
+                <th>
+                  Usage
+                </th>
+                <th class="w3-center">
+                  <a class="item-control item-create" title="Create Class Power" data-type="classpower"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each classpowers as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td class="w3-display-container">
+                  <div class="w3-display-middle" style="width: 26px; height: 26px; border: 1px solid black; border-radius: 13px;"/>
+                  <a class="w3-display-middle rollable" data-roll-type="power">
+                    {{item.data.level}}
+                  </a>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+                  {{item.data.type}}
+                </td>
+                <td>
+                  <a class="resetusage" data-id="{{item._id}}"> 
+                    {{{item.data.usage}}}
+                  </a>
+                </td>
+                <td class="w3-center w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>                  
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="7">
+                  <div class="w3-half">
+                    <div class="w3-tag w3-round-small w3-red w3-center w3-centered" data-id="{{item._id}}">
+                      {{item.data.range}}
+                    </div>
+                  </div>
+
+                  <div class="w3-half">
+                    {{#if item.data.damage}}
+                      <div class="w3-tag w3-round-small w3-red w3-center" data-id="{{item._id}}">
+                        {{item.data.damage}}
+                        <i class="fas fa-heart"></i>
+                      </div>
+                    {{/if}}
+                  </div>
+
+                  <div class="w3-col">
+                    {{{item.data.description}}}
+                  </div>
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+
+          <div class="w3-col">
+            <label><b>Role:</b></label>
+            <input name="data.role" type="text" value="{{data.role}}" class="w3-large" style="width: 40%">
+          </div>
+
+          <div class="w3-col">
+            <label><b>Role Feats</b></label>
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Feat Name
+                </th>
+                <th class="w3-center"style="width:50px">
+                  <i class="fas fa-tag"></i>
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create Role Feat" data-type="rolefeat"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each rolefeats as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+          
+          <div class="w3-col">
+            <label><b>Role Powers</b></label>
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-display-container">
+                  <img class="w3-display-middle" src="icons/dice/d20black.svg" style="width: 30px"/>
+                </th>
+                <th> 
+                  Power Name
+                </th>
+                <th> 
+                  Type
+                </th>
+                <th>
+                  Usage
+                </th>
+                <th class="w3-center">
+                  <a class="item-control item-create" title="Create Role Power" data-type="rolepower"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each rolepowers as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td class="w3-display-container">
+                  <div class="w3-display-middle" style="width: 26px; height: 26px; border: 1px solid black; border-radius: 13px;"/>
+                  <a class="w3-display-middle rollable" data-roll-type="power">
+                    {{item.data.level}}
+                  </a>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+                  {{item.data.type}}
+                </td>
+                <td>
+                  <a class="resetusage" data-id="{{item._id}}"> 
+                    {{{item.data.usage}}}
+                  </a>
+                </td>
+                <td class="w3-center w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>                  
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="7">
+                  <div class="w3-half">
+                    <div class="w3-tag w3-round-small w3-red w3-center w3-centered" data-id="{{item._id}}">
+                      {{item.data.range}}
+                    </div>
+                  </div>
+
+                  <div class="w3-half">
+                    {{#if item.data.damage}}
+                      <div class="w3-tag w3-round-small w3-red w3-center" data-id="{{item._id}}">
+                        {{item.data.damage}}
+                        <i class="fas fa-heart"></i>
+                      </div>
+                    {{/if}}
+                  </div>
+
+                  <div class="w3-col">
+                    {{{item.data.description}}}
+                  </div>
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+
+          <div class="w3-col">
+            <label><b>Feats</b></label>
+            <table class="w3-table w3-table-all item-list" style="padding: 0; margin: 0;">
+              <tr class="w3-blue">
+                <th class="w3-center" style="width:50px">
+                  <i class="fas fa-image"></i>
+                </th>
+                <th> 
+                  Feat Name
+                </th>
+                <th class="w3-center"style="width:50px">
+                  <i class="fas fa-tag"></i>
+                </th>
+                <th class="w3-center" style="width:60px">
+                  <a class="item-control item-create" title="Create Feat" data-type="feat"><i class="fas fa-plus"></i></a>
+                </th>
+              </tr>
+
+              {{#each feats as |item id|}}
+              <tr class="item toggle-group" data-item-id="{{item._id}}" draggable="true">
+                <td>
+                  <div class="item-image w3-center" >
+                    <a class="rollable" data-roll-type="item">
+                      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a class="toggle" data-id="{{item._id}}">
+                    {{item.name}}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+                <td>
+
+                </td>
+                <td class="w3-center">
+                  <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+              <tr class="toggle-description w3-hide">
+                <td colspan="4">
+                  {{{item.data.description}}}
+                </td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</form>

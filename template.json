@@ -1,0 +1,116 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "min": 0,
+          "max": 10
+        },
+        "power": {
+          "value": 5,
+          "min": 0,
+          "max": 5
+        },
+        "biography": ""
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "attributes": {
+        "level": "1",
+        "wealth": "",
+        "actionpoints": "",
+        "speed": ""
+      },
+      "background": "",
+      "origin": "",
+      "Class": "",
+      "kit": "",
+      "kit-description": "",
+      "motivation": "",
+      "notes": "",
+      "relationships": "",
+      "reputation": "",
+      "biography": "",
+      "fallback": "",
+      "complicationuses": "0",
+      "condition": {
+        "n1": "0",
+        "n2": "0",
+        "n3": "0",
+        "n4": "0",
+        "n5": "0",
+        "n5text": "",
+        "n6": "0",
+        "n7": "0",
+        "n8": "0",
+        "n9": "0",
+        "n9text": ""
+      },
+      "role": "",
+      "class": "",
+      "strikes": 0
+    },
+    "npc": {
+      "templates": ["base"],
+      "notes": "",
+      "size": "",
+      "speed": "",
+      "type": "2"
+    }
+  },
+  "Item": {
+    "types": ["item", "skill", "trick", "complication", "advancement", "spell", "flawfavor", "classfeat", "classpower", "rolefeat", "rolepower", "feat"],
+    "templates": {
+      "base": {
+        "description": ""
+      },
+      "power": {
+        "level": "0",
+        "type": "",
+        "usage": "",
+        "range": "",
+        "damage": "",
+        "used": "0"
+      }
+    },
+    "item": {
+      "templates": ["base"]
+    },
+    "skill": {
+      "templates": ["base"],
+      "uses": "0",
+      "type": "Learned"
+    },
+    "trick": {
+      "templates": ["base"],
+      "uses": "0"
+    },
+    "complication": {
+      "templates": ["base"]
+    },
+    "advancement": {
+      "templates": ["base"]
+    },
+    "flawfavor": {
+      "templates": ["base"]
+    },
+    "rolefeat": {
+      "templates": ["base"]
+    },
+    "rolepower": {
+      "templates": ["base","power"]
+    },
+    "classfeat": {
+      "templates": ["base"]
+    },
+    "classpower": {
+      "templates": ["base","power"]
+    },
+    "feat": {
+      "templates": ["base"]
+    }
+  }
+}

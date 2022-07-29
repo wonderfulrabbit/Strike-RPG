@@ -1,0 +1,21 @@
+{
+  "name": "strikerpg",
+  "title": "Strike RPG",
+  "description": "The Strike RPG system for FoundryVTT!",
+  "version": "1.0.0",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "9",
+  "author": "Owen",
+  "esmodules": ["module/strikerpg.mjs"],
+  "styles": ["css/strikerpg.css"],
+  "scripts": [],
+  "packs": [],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
+}

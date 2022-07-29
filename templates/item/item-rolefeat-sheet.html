@@ -1,0 +1,19 @@
+<form class="{{cssClass}} w3-display-container w3-container" autocomplete="off">
+  
+  <div class="w3-col-padding">
+    <div class="w3-col w3-row-padding">
+      <div class="w3-quarter">
+        <img src="{{item.img}}" data-edit="img" class="w3-hover-opacity" title="{{item.name}}" style="width:100%" >
+      </div>
+      <div class="w3-threequarter">
+        <label><b>Role Feat Name</b></label>
+        <input name="name" type="text" value="{{item.name}}" placeholder="Name"class="w3-input w3-border w3-border-dark-grey w3-xlarge w3-padding-32 w3-padding" style="width:100%" >
+      </div>
+    </div>
+
+    <div class="w3-col">
+      <label><b>Description</b></label>
+      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+  </div>
+</form>
