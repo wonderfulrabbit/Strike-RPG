@@ -205,7 +205,7 @@ export class StrikeActorSheet extends ActorSheet {
 
       if (ev.button == 0) {
         if (u >= 10) return;
-        trick.update({"data.uses": u+1})
+        trick.update({"data.uses": u++})
       }
       else if (ev.button == 2) {
         if (u <= 0) return;
