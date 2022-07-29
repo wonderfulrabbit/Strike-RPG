@@ -219,11 +219,11 @@ export class StrikeActorSheet extends ActorSheet {
       const a = $(ev.currentTarget);
       const id = a[0].dataset.id;
       const trick = this.actor.items.get(id);
-      const u = trick.data.data.uses;
+      const u = parseInt(trick.data.data.uses);
 
       if (ev.button == 0) {
         if (u >= 6) return;
-        trick.update({"data.uses": u+1})
+        trick.update({"data.uses": u++})
       }
       else if (ev.button == 2) {
         if (u <= 0) return;
@@ -234,14 +234,14 @@ export class StrikeActorSheet extends ActorSheet {
 
     html.find('.change-complication-uses').on('mousedown', ev => {
       const actor = this.actor;
-      const u = actor.data.data.complicationuses;
+      const u = parseInt(actor.data.data.complicationuses);
 
       if (ev.button == 0) {
         if (u >= 10) {
           actor.update({"data.complicationuses": 0});
         } 
         else {
-          actor.update({"data.complicationuses": u+1});
+          actor.update({"data.complicationuses": u++});
         }
       }
       else if (ev.button == 2) {
