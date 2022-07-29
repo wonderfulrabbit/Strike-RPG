@@ -15,7 +15,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "",
-  "manifest": "https://github.com/wonderfulrabbit/Strike-RPG/releases/download/untagged-34b0931c3d3fe5f9d6dc/template.json",
-  "download": "https://github.com/wonderfulrabbit/Strike-RPG/releases/download/untagged-34b0931c3d3fe5f9d6dc/Strike-RPG-main.zip",
+  "manifest": "https://github.com/wonderfulrabbit/Strike-RPG/releases/download/release/system.json",
+  "download": "https://github.com/wonderfulrabbit/Strike-RPG/releases/download/release/Strike-RPG-main.zip",
   "license": "LICENSE.txt"
 }
