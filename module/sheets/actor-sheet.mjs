@@ -201,7 +201,7 @@ export class StrikeActorSheet extends ActorSheet {
       const a = $(ev.currentTarget);
       const id = a[0].dataset.id;
       const trick = this.actor.items.get(id);
-      const u = trick.data.data.uses;
+      const u = parseInt(trick.data.data.uses);
 
       if (ev.button == 0) {
         if (u >= 10) return;
