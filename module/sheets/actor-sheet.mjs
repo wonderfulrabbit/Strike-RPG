@@ -205,7 +205,7 @@ export class StrikeActorSheet extends ActorSheet {
 
       if (ev.button == 0) {
         if (u >= 10) return;
-        trick.update({"data.uses": u++})
+        trick.update({"data.uses": u+1})
       }
       else if (ev.button == 2) {
         if (u <= 0) return;
@@ -223,7 +223,7 @@ export class StrikeActorSheet extends ActorSheet {
 
       if (ev.button == 0) {
         if (u >= 6) return;
-        trick.update({"data.uses": u++})
+        trick.update({"data.uses": u+1})
       }
       else if (ev.button == 2) {
         if (u <= 0) return;
@@ -241,7 +241,7 @@ export class StrikeActorSheet extends ActorSheet {
           actor.update({"data.complicationuses": 0});
         } 
         else {
-          actor.update({"data.complicationuses": u++});
+          actor.update({"data.complicationuses": u+1});
         }
       }
       else if (ev.button == 2) {
