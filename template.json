@@ -62,7 +62,7 @@
     }
   },
   "Item": {
-    "types": ["item", "skill", "trick", "complication", "advancement", "spell", "flawfavor", "classfeat", "classpower", "rolefeat", "rolepower", "feat"],
+    "types": ["item", "skill", "trick", "complication", "advancement", "startingpower", "flawfavor", "classfeat", "classpower", "rolefeat", "rolepower", "feat"],
     "templates": {
       "base": {
         "description": ""
