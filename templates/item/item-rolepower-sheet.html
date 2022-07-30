@@ -2,12 +2,12 @@
   
   <div class="w3-col-padding">
 
-    <div class="w3-third">
+    <div class="w3-half">
       <label><b>Level</b></label>
       <input name="data.level" type="number" value="{{data.level}}">
     </div>
 
-    <div class="w3-third">
+    <div class="w3-half">
       <label><b>Type</b></label>
       <select class="w3-col" name="data.type">
         {{#select data.type}}
@@ -16,16 +16,6 @@
           <option value="Free">Free</option>
           <option value="Role">Role</option>
           <option value="Move">Move</option>
-        {{/select}}
-      </select>
-    </div>
-
-    <div class="w3-third">
-      <label><b>Used (encounter only)</b></label>
-      <select class="w3-col" name="data.used">
-        {{#select data.used}}
-          <option value="0">Not used</option>
-          <option value="1">Used</option>
         {{/select}}
       </select>
     </div>

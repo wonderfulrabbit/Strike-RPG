@@ -37,16 +37,16 @@
       "fallback": "",
       "complicationuses": "0",
       "condition": {
-        "n1": "0",
-        "n2": "0",
-        "n3": "0",
-        "n4": "0",
-        "n5": "0",
+        "n1": false,
+        "n2": false,
+        "n3": false,
+        "n4": false,
+        "n5": false,
         "n5text": "",
-        "n6": "0",
-        "n7": "0",
-        "n8": "0",
-        "n9": "0",
+        "n6": false,
+        "n7": false,
+        "n8": false,
+        "n9": false,
         "n9text": ""
       },
       "role": "",
@@ -110,6 +110,9 @@
       "templates": ["base","power"]
     },
     "feat": {
+      "templates": ["base"]
+    },
+    "startingpower": {
       "templates": ["base"]
     }
   }

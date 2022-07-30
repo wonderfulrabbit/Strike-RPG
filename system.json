@@ -2,7 +2,7 @@
   "name": "strikerpg",
   "title": "Strike RPG",
   "description": "The Strike RPG system for FoundryVTT!",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "9",
   "author": "Owen",
@@ -14,7 +14,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "url": "",
+  "url": "https://github.com/wonderfulrabbit/Strike-RPG",
   "manifest": "https://raw.githubusercontent.com/wonderfulrabbit/Strike-RPG/main/system.json",
   "download": "https://github.com/wonderfulrabbit/Strike-RPG/archive/refs/heads/main.zip",
   "license": "LICENSE.txt"

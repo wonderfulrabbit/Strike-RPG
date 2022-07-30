@@ -1,0 +1,48 @@
+<form class="{{cssClass}} w3-display-container w3-container" autocomplete="off">
+  
+  <div class="w3-col-padding">
+
+    <div class="w3-half">
+      <label><b>Level</b></label>
+      <input name="data.level" type="number" value="{{data.level}}">
+    </div>
+
+    <div class="w3-half">
+      <label><b>Type</b></label>
+      <select class="w3-col" name="data.type">
+        {{#select data.type}}
+          <option value="Attack">Attack</option>
+          <option value="Trigger">Trigger</option>
+          <option value="Free">Free</option>
+          <option value="Role">Role</option>
+          <option value="Move">Move</option>
+        {{/select}}
+      </select>
+    </div>
+
+    <div class="w3-col">
+      <label><b>Power Name</b></label>
+      <input name="name" type="text" value="{{item.name}}" placeholder="Name"class="w3-input w3-border w3-border-dark-grey w3-xlarge w3-padding-32 w3-padding" style="width:100%" >
+    </div>
+
+    <div class="w3-third">
+      <label><b>Usage</b></label>
+      <input name="data.usage" type="text" value="{{data.usage}}">
+    </div>
+    
+    <div class="w3-third">
+      <label><b>Range</b></label>
+      <input name="data.range" type="text" value="{{data.range}}">
+    </div>
+    
+    <div class="w3-third">
+      <label><b>Damage</b></label>
+      <input name="data.damage" type="text" value="{{data.damage}}">
+    </div>
+
+    <div class="w3-col">
+      <label><b>Description</b></label>
+      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+  </div>
+</form>

@@ -87,6 +87,7 @@ export class StrikeActorSheet extends ActorSheet {
     const complications = [];
     const advancements = [];
     const flawfavors = [];
+    const startingpowers = [];
     const classfeats = [];
     const classpowers = [];
     const rolefeats = [];
@@ -118,6 +119,9 @@ export class StrikeActorSheet extends ActorSheet {
         flawfavors.push(i);
       }
       // Append to spells.
+      else if (i.type === 'startingpower') {
+        startingpowers.push(i);
+      }
       else if (i.type === 'classfeat') {
         classfeats.push(i);
       }
@@ -142,6 +146,7 @@ export class StrikeActorSheet extends ActorSheet {
     context.complications = complications;
     context.advancements = advancements;
     context.flawfavors = flawfavors;
+    context.startingpowers = startingpowers;
     context.classfeats = classfeats;
     context.classpowers = classpowers;
     context.rolefeats = rolefeats;
@@ -185,6 +190,10 @@ export class StrikeActorSheet extends ActorSheet {
       const id = a[0].dataset.id;
       const power = this.actor.items.get(id);
       const u = power.data.data.used;
+
+      if(power.data.data.usage != "Encounter" && power.data.data.usage != "<strike>Encounter</strike>") {
+        return;
+      }
 
       if (u == 0) {
         power.update({"data.usage": "<strike>Encounter</strike>"});
